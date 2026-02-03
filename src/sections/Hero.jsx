@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { title, date, source, authors, lead } from "../content/article";
 
 export default function Hero() {
   return (
@@ -6,7 +7,6 @@ export default function Hero() {
       id="hero"
       className="relative min-h-[100vh] flex items-center justify-center text-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
     >
-      {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
@@ -24,23 +24,32 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="inline-block mb-6 text-sm tracking-widest text-amber-400 uppercase font-semibold"
         >
-          Website Kể Chuyện Tương Tác • Lịch Sử Việt Nam
+          {source} • {date}
         </motion.span>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-black leading-tight text-white mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-white mb-6"
         >
-          "Mỹ nhất định thua.
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-            Nhưng chỉ sau khi thua
-            <br />
-            trên bầu trời Hà Nội"
-          </span>
+          {title}
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-4 text-sm text-amber-200/90"
+        >
+          {authors.map((a, i) => (
+            <span key={i}>
+              {a.name}
+              {a.affiliation ? ` — ${a.affiliation}` : ""}
+              {i < authors.length - 1 ? "; " : ""}
+            </span>
+          ))}
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -48,9 +57,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          Lời tiên đoán lịch sử của Chủ tịch Hồ Chí Minh năm 1967 – Mở ra chương
-          huyền thoại trong cuộc đối đầu với "pháo đài bay" B-52 trên bầu trời
-          Hà Nội tháng 12/1972.
+          {lead}
         </motion.p>
 
         <motion.div
@@ -67,7 +74,7 @@ export default function Hero() {
             }
             className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
-            Khám Phá Câu Chuyện
+            Đọc tiếp
           </button>
         </motion.div>
       </div>

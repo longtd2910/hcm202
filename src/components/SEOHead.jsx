@@ -1,15 +1,14 @@
 import { useEffect } from "react";
+import { title, abstract } from "../content/article";
 
 export default function SEOHead() {
   useEffect(() => {
-    document.title = "Điện Biên Phủ Trên Không 1972 - Chiến Thắng Lịch Sử";
+    document.title = `${title} | Tạp chí Quản lý nhà nước`;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Khám phá câu chuyện lịch sử về chiến dịch Điện Biên Phủ trên không tháng 12/1972 - Chiến thắng vĩ đại của quân và dân Hà Nội trước B-52 Mỹ."
-      );
+      const desc = abstract.slice(0, 160).trim() + (abstract.length > 160 ? "…" : "");
+      metaDescription.setAttribute("content", desc);
     }
   }, []);
   return null;

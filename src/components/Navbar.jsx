@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaFire, FaBars } from "react-icons/fa";
+import { FaBook, FaBars } from "react-icons/fa";
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
@@ -23,6 +23,16 @@ export default function Navbar() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const navItems = [
+    { id: "context", label: "Tóm tắt" },
+    { id: "dap-van-de", label: "Đặt vấn đề" },
+    { id: "tu-tuong-hcm", label: "Tư tưởng HCM" },
+    { id: "van-dung", label: "Vận dụng" },
+    { id: "giai-phap", label: "Giải pháp" },
+    { id: "ket-luan", label: "Kết luận" },
+    { id: "chu-thich", label: "Chú thích" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md
@@ -34,35 +44,20 @@ export default function Navbar() {
           className="flex items-center gap-2 text-amber-600 text-xl font-bold cursor-pointer"
           onClick={() => scrollToSection("hero")}
         >
-          <FaFire />
-          <span className="hidden sm:inline">Điện Biên Phủ Trên Không</span>
+          <FaBook />
+          <span className="hidden sm:inline">Tạp chí QLNN</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <button
-            onClick={() => scrollToSection("context")}
-            className="hover:text-amber-600 transition"
-          >
-            Bối Cảnh
-          </button>
-          <button
-            onClick={() => scrollToSection("strategy")}
-            className="hover:text-amber-600 transition"
-          >
-            Chiến Lược
-          </button>
-          <button
-            onClick={() => scrollToSection("battle")}
-            className="hover:text-amber-600 transition"
-          >
-            Trận Chiến
-          </button>
-          <button
-            onClick={() => scrollToSection("victory")}
-            className="hover:text-amber-600 transition"
-          >
-            Chiến Thắng
-          </button>
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          {navItems.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="hover:text-amber-600 transition whitespace-nowrap"
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         <button className="md:hidden text-[#0F172A]/80 hover:text-amber-600 transition text-xl">
