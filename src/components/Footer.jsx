@@ -1,27 +1,19 @@
-import { FaBook } from "react-icons/fa";
-import { source, sourceUrl } from "../content/article";
-
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-gray-400 py-12">
-      <div className="mx-auto max-w-5xl px-6 text-center">
-        <div className="flex items-center justify-center gap-3 text-amber-500 text-2xl font-bold mb-4">
-          <FaBook />
-          <a
-            href={sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-amber-400 transition"
-          >
-            {source}
-          </a>
+    <footer className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-gray-400 py-16 border-t border-slate-800/50">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center gap-2 text-amber-500/80">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
+              <span className="text-amber-400 font-bold">10</span>
+            </div>
+            <span className="font-semibold text-white">Nhóm 10</span>
+          </div>
+          <p className="text-sm text-gray-500">
+            © 2025 • Được xây dựng với React & Framer Motion
+          </p>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mt-2" />
         </div>
-        <p className="text-sm mb-6">
-          Bài viết gốc đăng trên Tạp chí Quản lý nhà nước
-        </p>
-        <p className="text-xs text-gray-500">
-          © 2025 • Được xây dựng với React & Framer Motion
-        </p>
       </div>
     </footer>
   );

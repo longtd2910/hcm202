@@ -3,7 +3,7 @@ import { title, abstract } from "../content/article";
 
 export default function SEOHead() {
   useEffect(() => {
-    document.title = `${title} | Tạp chí Quản lý nhà nước`;
+    document.title = title;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

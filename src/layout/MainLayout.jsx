@@ -14,10 +14,10 @@ export default function MainLayout() {
       <Navbar />
 
       {/* Nội dung trang (Hero, Context, v.v.) */}
-      <div className="pt-14">
+      <div className="pt-[72px]">
         <Outlet />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
